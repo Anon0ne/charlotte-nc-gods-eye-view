@@ -207,6 +207,30 @@ const layers = [
     },
   },
   {
+    id: 'charlotte-traffic',
+    aliases: ['charlotte traffic', 'cmpd traffic', 'cmpd incidents'],
+    context: false,
+    noQuery: 'Charlotte local feed; no voice query yet',
+  },
+  {
+    id: 'charlotte-closures',
+    aliases: ['charlotte closures', 'road closures', 'charlotte road closures'],
+    context: false,
+    noQuery: 'Charlotte local feed; no voice query yet',
+  },
+  {
+    id: 'charlotte-ncdot',
+    aliases: ['ncdot events', 'drivenc events', 'charlotte ncdot'],
+    context: false,
+    noQuery: 'Charlotte local feed; no voice query yet',
+  },
+  {
+    id: 'charlotte-cameras',
+    aliases: ['charlotte cameras', 'charlotte traffic cameras', 'drivenc cameras'],
+    context: false,
+    noQuery: 'Charlotte local feed; no voice query yet',
+  },
+  {
     id: 'weather-radar',
     aliases: ['weather radar', 'radar', 'rain', 'weather'],
     context: false,

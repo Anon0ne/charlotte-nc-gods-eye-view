@@ -339,3 +339,25 @@ NOAA density imagery with the raw GLM product.
 ## In-app attribution
 
 The required Google Maps / Cesium credit renders on the on-globe credit line (`#cesium-credits`, bottom-left) and must stay visible — including in clean-view and recording modes (the whole line, logo + "Google Maps" + the "Data attribution" link, stays on screen; only the GEV panels/HUD fade). The layer-specific credits (adsb.lol, adsbdb, TeleGeography, OSM datacenters/dams/roads, NASA FIRMS, CelesTrak, USGS, City of Austin, Fintraffic, GBFS, Radio Browser, OpenSky, AISStream) are registered into the expandable **"Data attribution"** popover on that credit line via `viewer.creditDisplay.addStaticCredit(new Cesium.Credit(html, /* showOnScreen */ false))` — see `src/data/dataCredits.js`. When you add a new data source, add its license and attribution to this file **and** append an entry to `DATA_CREDITS` in `src/data/dataCredits.js` so it surfaces in the app.
+
+## Charlotte / Mecklenburg additions
+
+- **CMPD Traffic**: https://cmpdinfo.charlottenc.gov/api/v2.1/Help and
+  https://cmpdinfo.charlottenc.gov/api/v2.1/Traffic. Public, keyless open traffic
+  crashes, traffic-control malfunctions and obstructions. Approximate locations,
+  not a general dispatch feed. Attribution: Charlotte-Mecklenburg Police Department.
+- **CDOT street closures**:
+  https://gis.charlottenc.gov/arcgis/rest/services/CDOT/StreetClosuresAndDetours/MapServer/0.
+  Runtime ArcGIS queries in EPSG:4326; active flag and published dates are checked.
+  Attribution: City of Charlotte / Charlotte Department of Transportation.
+- **DriveNC events and cameras**: https://www.drivenc.gov/developers/doc.
+  Requires a user-issued developer key; documented throttle is ten calls per
+  sixty seconds. Attribution: NCDOT / DriveNC and the source organization.
+  The integration uses the current v2 GET event/cameras endpoints, never the
+  retired TIMS API. Camera locations show an official still when selected and link to that image;
+  no video is redistributed or stored.
+
+These additions fetch public data at runtime and do not bundle upstream records.
+No blanket redistribution license is asserted for these government services;
+provider terms and attribution continue to apply. The UI names the sources and
+keeps timestamps and availability visible.
