@@ -226,7 +226,11 @@ const layers = [
   },
   {
     id: 'charlotte-cameras',
-    aliases: ['charlotte cameras', 'charlotte traffic cameras', 'drivenc cameras'],
+    aliases: [
+      'charlotte cameras',
+      'charlotte traffic cameras',
+      'drivenc cameras',
+    ],
     context: false,
     noQuery: 'Charlotte local feed; no voice query yet',
   },
