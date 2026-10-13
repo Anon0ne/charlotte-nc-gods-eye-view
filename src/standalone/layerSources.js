@@ -1,3 +1,4 @@
+import { createCharlotteSource } from '../layers/charlotte/source.js';
 import { createOpenFreeMapSource } from '../sources/openFreeMap.js';
 import {
   createOpenSkySource,
@@ -25,6 +26,7 @@ export function createStandaloneLayerSources() {
   const mapTiles = createOpenFreeMapSource();
   return {
     ...createReferenceSources(),
+    charlotte: createCharlotteSource(),
     flights: createOpenSkySource(),
     military: createAdsbLolSource(),
     vessels: createAisStreamSource({
