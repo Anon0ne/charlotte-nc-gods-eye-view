@@ -3,10 +3,18 @@ import { normalizeCharlotte } from '../../src/layers/charlotte/model.js';
 const CLOSURES =
   'https://gis.charlottenc.gov/arcgis/rest/services/CDOT/StreetClosuresAndDetours/MapServer/0/query';
 const TTL = { cmpd: 60000, closures: 300000, ncdot: 60000, cameras: 3600000 };
+/** Trim whitespace and wrapping quotes that Windows shells and editors add. */
+export function cleanKey(value) {
+  return String(value ?? '')
+    .trim()
+    .replace(/^(['"])(.*)\1$/, '$2')
+    .trim();
+}
+
 export function createCharlotteCollector({
   fetchImpl = globalThis.fetch,
   now = Date.now,
-  getKey = () => process.env.NCDOT_API_KEY,
+  getKey = () => cleanKey(process.env.NCDOT_API_KEY),
 } = {}) {
   const cache = new Map(),
     pending = new Map();
@@ -54,7 +62,7 @@ export function createCharlotteCollector({
         await response.body?.cancel();
         throw Object.assign(
           new Error(`Charlotte upstream HTTP ${response.status}`),
-          { upstreamStatus: response.status },
+          { upstreamStatus: response.status, keyLength: key?.length },
         );
       }
       const input = await readResponseJsonCapped(response, 8 * 1024 * 1024);
@@ -114,7 +122,9 @@ export function charlotteProxy(options) {
         if (error.status === 503)
           message = 'Set NCDOT_API_KEY in .env.local, then restart the server';
         else if (Number.isInteger(upstreamStatus))
-          message = `Charlotte upstream HTTP ${upstreamStatus}`;
+          message = Number.isInteger(error.keyLength)
+            ? `Charlotte upstream HTTP ${upstreamStatus}: DriveNC refused the request. The server loaded a ${error.keyLength}-character NCDOT_API_KEY (DriveNC keys are 32 characters). A PowerShell or system NCDOT_API_KEY variable overrides .env.local.`
+            : `Charlotte upstream HTTP ${upstreamStatus}`;
         else if (error.name === 'TimeoutError' || error.name === 'AbortError')
           message = 'Charlotte upstream request timed out';
         else if (safeNetworkCodes.includes(networkCode))

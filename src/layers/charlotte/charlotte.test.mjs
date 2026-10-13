@@ -170,3 +170,11 @@ test('DriveNC needs a server key, passes it only upstream, and removes it from e
   );
   assert.equal(res.statusCode, 400);
 });
+
+test('DriveNC keys are trimmed of whitespace and wrapping quotes', async () => {
+  const { cleanKey } = await import('../../../server/providers/charlotte.js');
+  assert.equal(cleanKey(' "abc123"\r\n'), 'abc123');
+  assert.equal(cleanKey("'abc123'"), 'abc123');
+  assert.equal(cleanKey(undefined), '');
+  assert.equal(cleanKey('"mismatched'), '"mismatched');
+});
