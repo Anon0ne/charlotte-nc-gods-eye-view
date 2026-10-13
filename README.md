@@ -28,6 +28,23 @@ _“pretty cool”_ — [Brendan Eich](https://x.com/BrendanEich/status/20945920
 
 </div>
 
+## 🏙️ Charlotte, NC edition
+
+This fork of [bilawalsidhu/gods-eye-view](https://github.com/bilawalsidhu/gods-eye-view) adds a **Charlotte** location preset and a Charlotte layer group:
+
+| Layer | Source | Key |
+|---|---|---|
+| CMPD Traffic Events | CMPD open traffic events | none |
+| Charlotte Road Closures | CDOT street closures and detours | none |
+| NCDOT Charlotte Events | DriveNC traffic events | `NCDOT_API_KEY` |
+| Charlotte Traffic Cameras | DriveNC traffic-camera stills | `NCDOT_API_KEY` |
+
+The layers load only when the globe is zoomed into the Charlotte area. Get a free DriveNC key at [drivenc.gov/developers](https://www.drivenc.gov/developers/doc).
+
+**Install with Pinokio:** in Pinokio choose **Download from URL**, paste `https://github.com/Anon0ne/charlotte-nc-gods-eye-view`, then **Install** and **Start**. Add the DriveNC key under **POWER UP → Provider Settings → DRIVENC** inside the app. Pinokio's **Update** pulls from this fork, so Charlotte changes are kept.
+
+**Install from a terminal:** Node.js 24.14+ (24.x) or 26.x, then `npm install` and `npm run dev`, or `bash scripts/build-kali.sh` on Linux. Put `NCDOT_API_KEY=...` in `.env.local` beside `package.json`. `node configure-api-keys.mjs --check` checks which keys the running app sees without printing them.
+
 ---
 
 <div align="center">

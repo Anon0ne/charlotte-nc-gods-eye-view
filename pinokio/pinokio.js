@@ -1,7 +1,7 @@
 module.exports = {
   version: '3.6',
-  title: "God's Eye View",
-  description: 'A live 3D intelligence console for planet Earth.',
+  title: "God's Eye View: Charlotte, NC",
+  description: 'A live 3D intelligence console for planet Earth, with Charlotte traffic, closures and cameras.',
   menu: async (kernel, info) => {
     const installed = await kernel.exists(__dirname, '.installed');
     const installing = info.running('install.js');

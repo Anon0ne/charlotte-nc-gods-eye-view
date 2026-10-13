@@ -27,5 +27,9 @@
   ["weather-lightning", "l"],
   ["weather-radar", "v"],
   ["weather-satellite", "o"],
-  ["wind", "k"]
+  ["wind", "k"],
+  ["charlotte-traffic", "3"],
+  ["charlotte-closures", "4"],
+  ["charlotte-ncdot", "5"],
+  ["charlotte-cameras", "6"]
 ]

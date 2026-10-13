@@ -1,3 +1,4 @@
+import { charlotteProxy } from './charlotte.js';
 import { openSkyProxy } from './aircraft/opensky.js';
 import { celestrakProxy, rocketLaunchesProxy } from './space.js';
 import { tomtomProxy } from './traffic.js';
@@ -33,6 +34,7 @@ import { windProxy } from './wind.js';
  */
 function localProviderPlugins({ realtime } = {}) {
   return [
+    charlotteProxy(),
     openSkyProxy(),
     celestrakProxy(),
     tomtomProxy(),

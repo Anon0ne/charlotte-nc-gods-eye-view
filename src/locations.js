@@ -24,6 +24,61 @@ let arrivalGeneration = 0;
  *   buildingHeight — estimated height of landmark center above ground (meters)
  */
 export const CITY_POIS = {
+  charlotte: {
+    name: 'Charlotte',
+    groundElevation: 230,
+    viewBounds: {
+      southwest: { lat: 34.95, lng: -81.05 },
+      northeast: { lat: 35.45, lng: -80.55 },
+    },
+    pois: [
+      {
+        name: 'Uptown Charlotte',
+        lat: 35.2271,
+        lon: -80.8431,
+        alt: 22000,
+        pitch: -60,
+        heading: 0,
+        buildingHeight: 0,
+      },
+      {
+        name: 'Bank of America Stadium',
+        lat: 35.2258,
+        lon: -80.8528,
+        alt: 1800,
+        pitch: -40,
+        heading: 90,
+        buildingHeight: 45,
+      },
+      {
+        name: 'Charlotte Douglas Airport',
+        lat: 35.214,
+        lon: -80.9431,
+        alt: 10000,
+        pitch: -55,
+        heading: 0,
+        buildingHeight: 20,
+      },
+      {
+        name: 'I-77 / I-85 Interchange',
+        lat: 35.279,
+        lon: -80.846,
+        alt: 7000,
+        pitch: -65,
+        heading: 0,
+        buildingHeight: 0,
+      },
+      {
+        name: 'UNC Charlotte',
+        lat: 35.3073,
+        lon: -80.7331,
+        alt: 7000,
+        pitch: -45,
+        heading: 180,
+        buildingHeight: 20,
+      },
+    ],
+  },
   austin: {
     name: 'Austin',
     groundElevation: 150, // meters above WGS84 ellipsoid

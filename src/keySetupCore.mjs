@@ -85,6 +85,14 @@ export const KEY_SETUP_KEYS = Object.freeze([
     tier: 'free',
   }),
   Object.freeze({
+    id: 'drivenc',
+    title: 'DRIVENC',
+    unlocks: 'Charlotte NCDOT traffic events and traffic cameras',
+    getUrl: 'https://www.drivenc.gov/developers/doc',
+    envVars: Object.freeze(['NCDOT_API_KEY']),
+    tier: 'free',
+  }),
+  Object.freeze({
     id: 'cesium-ion',
     title: 'CESIUM ION',
     unlocks: 'Bing imagery map stacks + world terrain',

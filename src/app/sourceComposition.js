@@ -11,6 +11,15 @@ export const CATALOG_SOURCE_CONTRACTS = Object.freeze({
     ['recent-imagery'],
     ['searchHls', 'getThumbnail', 'getTileTemplate'],
   ),
+  charlotte: contract(
+    [
+      'charlotte-traffic',
+      'charlotte-closures',
+      'charlotte-ncdot',
+      'charlotte-cameras',
+    ],
+    ['getSnapshot'],
+  ),
   flights: contract(['flights'], ['getSnapshot']),
   military: contract(['military'], ['getSnapshot']),
   vessels: contract(['ais-live-vessels'], ['getSnapshot']),

@@ -1,3 +1,20 @@
+## Charlotte layers — September 30, 2026
+
+Charlotte is available as a location preset. The Charlotte layer group includes
+CMPD open traffic events (not general CAD/police dispatch), CDOT published road
+closures, DriveNC traffic events, and traffic-camera locations with official still-image previews and links. CMPD locations are approximate. Upcoming closures use muted
+markers; expired CDOT records are removed even when ACTIVE remains Yes.
+Source dates appear in Eastern time. Camera stills load only when selected. Live video playback is not embedded.
+
+CMPD and CDOT require no key. DriveNC uses the server-only NCDOT_API_KEY.
+The retired TIMS incident endpoint is not used. All providers have response caps
+and timeouts; concurrent requests share one fetch, with 60-second traffic,
+5-minute closure, and 1-hour camera caches. Layers refresh only when enabled and
+the visible globe intersects Charlotte at local zoom. Static markers/lines are
+reconciled by ID, labels appear only nearby, and failed refreshes retain the
+last snapshot with stale/error status. No improvement to global frame rate has
+been benchmarked.
+
 # Changelog
 
 - Treat explicitly current, complete empty vessel coverage as a successful update,

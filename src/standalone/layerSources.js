@@ -1,5 +1,6 @@
 import { createDirectionsSource } from '../layers/directions/source.js';
 import { createRecentImagerySource } from '../layers/recentImagery/source.js';
+import { createCharlotteSource } from '../layers/charlotte/source.js';
 import { createOpenFreeMapSource } from '../sources/openFreeMap.js';
 import {
   createFlightSource,
@@ -30,6 +31,7 @@ export function createStandaloneLayerSources(overrides = {}) {
   const mapTiles = createOpenFreeMapSource();
   const defaults = {
     ...createReferenceSources(),
+    charlotte: createCharlotteSource(),
     directions: createDirectionsSource(),
     'recent-imagery': createRecentImagerySource(),
     flights: createFlightSource(),

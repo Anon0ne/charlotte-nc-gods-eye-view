@@ -930,7 +930,10 @@
       "src/layers/earthquakes/index.js",
       "src/layers/earthquakes/model.js",
       "src/layers/earthquakes/source.js",
-      "src/layers/earthquakes/records.js"
+      "src/layers/earthquakes/records.js",
+      "src/layers/charlotte/model.js",
+      "src/layers/charlotte/index.js",
+      "src/layers/charlotte/source.js"
     ],
     "external": ["cesium"]
   },
@@ -2209,7 +2212,10 @@
       "src/tools/functions.js",
       "src/voice/actionSchemas.js",
       "src/view/index.js",
-      "src/app/embed.js"
+      "src/app/embed.js",
+      "src/layers/charlotte/model.js",
+      "src/layers/charlotte/index.js",
+      "src/layers/charlotte/source.js"
     ],
     "external": [
       "hls.js",
@@ -2736,7 +2742,10 @@
       "src/data/local_data/osm_military_names/names.json",
       "src/layers/installations/namedMarkers.js",
       "src/data/infrastructureOverlayEntry.js",
-      "src/sources/infrastructureData.js"
+      "src/sources/infrastructureData.js",
+      "src/layers/charlotte/model.js",
+      "src/layers/charlotte/index.js",
+      "src/layers/charlotte/source.js"
     ],
     "external": [
       "hls.js",
